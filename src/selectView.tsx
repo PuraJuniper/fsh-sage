@@ -3,7 +3,7 @@ import {BaseCard} from"./baseCard";
 
 
 export const SelectView = () => {
-    const [currentValue, setValue] = useState<string[]>([]);
+    const [links, setLinks] = useState<string[]>([]);
 
     const resources = [
         "CPGAdministerMedicationActivityDefinition",
@@ -31,15 +31,14 @@ export const SelectView = () => {
                 .then(async response => response.text())
                 .then(async (txt) => {
                     const link = txt.split("\n")[1].split(" ")[1];
-                    currentValue.push(link);
-                    setValue([...currentValue]);
+                    links.push(link);
+                    setLinks([...links]);
                 })
             }
         }
         fetchData();
       }, []);
-    if (!currentValue) return <div>Loading...</div>;
-    console.log(currentValue);
+    if (!links) return <div>Loading...</div>;
     return (
         <div style={{marginTop:"50px", width:"100%"}}>
             <h3 style={{color:"#b12c07"}}><b>Available Resources</b></h3>
@@ -49,7 +48,7 @@ export const SelectView = () => {
                 resources.map(
                         (resource, i) => {
                         return <div className="col-lg-3 col-md-4" key={i}>
-                            <BaseCard title={resource} link={currentValue[i]}/>
+                            <BaseCard title={resource} link={links[i]}/>
                         </div>
                 })
             } 
