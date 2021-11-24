@@ -1,12 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import {SelectView} from "./selectView"
+import {Collection} from "./collection"
 
 function App() {
   return (
-    <div className="App container" style={{padding:"15px"}}>
+    <div className="App container">
       <SelectView />
+      <Collection />
     </div>
   );
 }
