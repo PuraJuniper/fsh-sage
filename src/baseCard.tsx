@@ -27,19 +27,19 @@ export const BaseCard = (props:any) => {
         title = title.slice(0,21) + "...";
     }
     const content = props.content;
-
-    
-    console.log(show);
     
     return (
         <CSSTransition
         in={show}
-        timeout={300}
+        timeout={30000}
         classNames="res-card"
         >
         <Card
                 onClick={(e: any) => {
-                    if (e.target.tagName !== "svg" && e.target.tagName !== "path") alert("Clicked " + title);
+                    if (e.target.tagName !== "svg" && e.target.tagName !== "path") {
+                        alert(props.title);
+                        setShow(false);
+                    }
                 }}
                 >
                 <Card.Header as="h6">

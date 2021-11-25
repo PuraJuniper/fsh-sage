@@ -81,7 +81,7 @@ export const SelectView = () => {
                             </a>
                         </div>
                         }
-                        wait={i*100}
+                        wait={i*25}
                         />
                         </div>
                 )})

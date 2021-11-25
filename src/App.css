@@ -28,8 +28,29 @@ html, body {
   border-radius:10px;
 }
 
+.form-control {
+  border: 3px solid #b12c07
+}
+
 a {
   color:black;
+}
+
+button {
+  background-color: #b12c07; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius:5px;
+}
+
+button:hover {
+  background-color: #db6312;
+  transition-duration: 300ms;
 }
 
 test-color {
@@ -52,4 +73,23 @@ test-color {
   opacity: 0;
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
+}
+
+.view-enter {
+  opacity: 0;
+  transform: translateX(100vw) translateY(50px);
+}
+.view-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 250ms;
+}
+
+.view-exit {
+  opacity: 1;
+}
+.view-exit-active {
+  opacity: 0;
+  transform: translateX(-100vw);
+  transition: all 250ms;
 }
