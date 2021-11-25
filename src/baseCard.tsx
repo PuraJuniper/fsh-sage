@@ -1,7 +1,20 @@
 import {Card} from "react-bootstrap";
+import {useState, useEffect} from "react";
+import { CSSTransition } from 'react-transition-group';
 import React from "react";
 
+import './App.css';
+
 export const BaseCard = (props:any) => {
+    let [show, setShow] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setShow(true);
+        }, props.wait);
+      }, []);
+
+
     let index = props.header.indexOf("Activity");
     let header = index >= 0 && props.header.length > "ActivityDefinition".length 
         ? props.header.slice(0, index) : props.header;
@@ -15,21 +28,30 @@ export const BaseCard = (props:any) => {
     }
     const content = props.content;
 
+    
+    console.log(show);
+    
     return (
-        <Card
-            onClick={(e: any) => {
-                if (e.target.tagName !== "I") alert("Clicked " + title);
-            }}
+        <CSSTransition
+        in={show}
+        timeout={300}
+        classNames="res-card"
         >
-            <Card.Header as="h6">
-                {header}
-            </Card.Header>
-            <Card.Body>
-             <Card.Title as="h5">{title}</Card.Title>
-                <Card.Text as="div">
-                    {content}
-                </Card.Text>
-            </Card.Body>
-        </Card>
+        <Card
+                onClick={(e: any) => {
+                    if (e.target.tagName !== "svg" && e.target.tagName !== "path") alert("Clicked " + title);
+                }}
+                >
+                <Card.Header as="h6">
+                    {header}
+                </Card.Header>
+                <Card.Body>
+                    <Card.Title as="h5">{title}</Card.Title>
+                    <Card.Text as="div">
+                        {content}
+                    </Card.Text>
+                </Card.Body>
+                </Card>
+        </CSSTransition>
     );
 }
