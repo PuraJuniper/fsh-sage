@@ -19,7 +19,7 @@ const sendValues = async (event: FormEvent<HTMLFormElement>) => {
         reviewer: {value: string}
         endorser: {value: string}
     }
-    //console.log(version.value, date.value, status.value);
+    console.log(version.value, date.value, status.value);
 };
 
 

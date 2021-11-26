@@ -51,8 +51,8 @@ export const SelectView = (props:any) => {
     return (
         <div style={{marginTop:"50px", paddingRight:"12px"}}>
             <div className="row">
-            <h3 className="col-10" style={{color:"#b12c07"}}><b>Available Resources</b></h3>
-            <button className="navigate col-2" onClick={() => props.changeView("metadata")}>
+            <h3 className="col-lg-10 col-md-9" style={{color:"#b12c07"}}><b>Available Resources</b></h3>
+            <button className="navigate col-lg-2 col-md-3" onClick={() => props.changeView("metadata")}>
                 <FontAwesomeIcon icon={faCaretLeft} />
                             &nbsp;Back to Metadata
             </button>
