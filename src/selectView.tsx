@@ -4,11 +4,11 @@ import { CSSTransition } from 'react-transition-group';
 import { Container, Button } from 'react-bootstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faBracketsCurly, faBookMedical, faCode, faTurtle, faGripLinesVertical} from  '@fortawesome/pro-solid-svg-icons';
+import {faBracketsCurly, faBookMedical, faCode, faTurtle, faCaretLeft} from  '@fortawesome/pro-solid-svg-icons';
 
 import './App.css';
 
-export const SelectView = () => {
+export const SelectView = (props:any) => {
     const [links, setLinks] = useState<string[]>([]);
 
     const resources = [
@@ -49,8 +49,14 @@ export const SelectView = () => {
     const baseUrl = "http://hl7.org/fhir/uv/cpg/STU1/ActivityDefinition-";
 
     return (
-        <div style={{marginTop:"50px"}}>
-            <h3 style={{color:"#b12c07"}}><b>Available Resources</b></h3>
+        <div style={{marginTop:"50px", paddingRight:"12px"}}>
+            <div className="row">
+            <h3 className="col-10" style={{color:"#b12c07"}}><b>Available Resources</b></h3>
+            <button className="navigate col-2" onClick={() => props.changeView("metadata")}>
+                <FontAwesomeIcon icon={faCaretLeft} />
+                            &nbsp;Back to Metadata
+            </button>
+            </div>
             <div className="row box">
                 {
                 resources.map(

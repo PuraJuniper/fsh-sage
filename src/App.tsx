@@ -8,22 +8,39 @@ import { CSSTransition } from 'react-transition-group';
 
 function App() {
   let [render, setRender] = useState("metadata");
+  let [nextRender, setNextRender] = useState("");
   let [show, setShow] = useState(true);
+  let [direction, setDirection] = useState("");
+
+  const viewNums:{ [key: string]: any }= {
+    "metadata":0,
+    "selectview":1
+  }
 
   useEffect(() => {
     if (!show) {
+      if (viewNums[nextRender] > viewNums[render]) {
+        setDirection("from-right")
+      } else {
+        setDirection("from-left");
+      }
       setTimeout(() => {
-        setRender("selectview");
+        setRender(nextRender);
         setShow(true);
-      }, 300)
+      }, 250)
     }
   }, [show]);
 
+  const changeView = (nextRender:string) => {
+    setShow(false);
+    setNextRender(nextRender);
+  }
+
   const toRender = (() => {
     if (render === "metadata") {
-      return <MetaData changeView={setShow}/>
+      return <MetaData changeView={changeView}/>
     } else if (render == "selectview") {
-      return <SelectView />
+      return <SelectView changeView={changeView}/>
 
     }
   })();
@@ -33,7 +50,7 @@ function App() {
       <CSSTransition
         in={show}
         timeout={9999}
-        classNames="view"
+        classNames={`view-${direction}`}
         unmountOnExit
         >
       {toRender}

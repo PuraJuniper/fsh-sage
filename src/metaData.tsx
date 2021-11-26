@@ -19,7 +19,7 @@ const sendValues = async (event: FormEvent<HTMLFormElement>) => {
         reviewer: {value: string}
         endorser: {value: string}
     }
-    console.log(version.value, date.value, status.value);
+    //console.log(version.value, date.value, status.value);
 };
 
 
@@ -88,7 +88,7 @@ export const MetaData = (props:any) => {
             <Form.Control type="text" placeholder="Endorser Name" />
             </Form.Group>
 
-        <button type="submit" onClick={() => props.changeView(false)}>Open Resource</button>
+        <button className="open-resource" type="submit" onClick={() => props.changeView("selectview")}>Open Resource</button>
 
         </Form>
         </div>

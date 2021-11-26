@@ -37,8 +37,10 @@ export const BaseCard = (props:any) => {
         <Card
                 onClick={(e: any) => {
                     if (e.target.tagName !== "svg" && e.target.tagName !== "path") {
-                        alert(props.title);
                         setShow(false);
+                        setTimeout(() => {
+                            setShow(true);
+                        }, 500);
                     }
                 }}
                 >
