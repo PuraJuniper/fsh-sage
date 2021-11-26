@@ -31,16 +31,13 @@ export const BaseCard = (props:any) => {
     return (
         <CSSTransition
         in={show}
-        timeout={30000}
+        timeout={9999}
         classNames="res-card"
         >
         <Card
                 onClick={(e: any) => {
                     if (e.target.tagName !== "svg" && e.target.tagName !== "path") {
                         setShow(false);
-                        setTimeout(() => {
-                            setShow(true);
-                        }, 500);
                     }
                 }}
                 >

@@ -41,20 +41,10 @@ a {
   color:black;
 }
 
-button.open-resource {
-  background-color: #b12c07; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  border-radius:5px;
-}
-
-button.navigate {
-  background-color:rgb(255, 186, 159);
+button {
+  background: linear-gradient(to left, #fccdba 50%, #b12c07 50%) right;
+  background-size: 200%;
+  transition: .3s ease-out;
   border: 2px solid #b12c07;
   color: #b12c07;
   text-align: center;
@@ -65,10 +55,18 @@ button.navigate {
   margin-bottom:5px;
 }
 
+button.open-resource {
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius:5px;
+}
+
 button:hover {
-  color: white;
-  background-color: #db6312;
-  transition-duration: 300ms;
+  background-position:left;
+  color:white;
 }
 
 test-color {
