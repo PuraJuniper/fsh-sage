@@ -11,6 +11,7 @@ function App() {
   let [nextRender, setNextRender] = useState("");
   let [show, setShow] = useState(true);
   let [direction, setDirection] = useState("");
+  let [commonMetaData, setCommonMetaData] = useState(null);
 
   const viewNums:{ [key: string]: any }= {
     "metadata":0,
@@ -38,12 +39,15 @@ function App() {
 
   const toRender = (() => {
     if (render === "metadata") {
-      return <MetaData changeView={changeView}/>
-    } else if (render == "selectview") {
+      return <MetaData changeView={changeView} commonMetaData={commonMetaData} 
+      setCommonMetaData={setCommonMetaData}/>
+    } else if (render === "selectview") {
       return <SelectView changeView={changeView}/>
 
     }
   })();
+
+  console.log(commonMetaData);
 
   return (
     <div className="App container">
