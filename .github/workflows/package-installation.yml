@@ -1,6 +1,0 @@
-# For installing private packages
-
-- name: Install Dependencies
-      run: |
-      npm config set '//npm.fontawesome.com/:_authToken' "${{ secrets.FONTAWESOME_PRO_AUTH_TOKEN }}"
-      npm install

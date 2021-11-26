@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - run: npm config set '//npm.fontawesome.com/:_authToken' "${{ secrets.FONTAWESOME_PRO_AUTH_TOKEN }}"
       - run: npm install
       - run: CI=false npm run build # remove CI=false once we have a version that compiles with no warnings
       - uses: FirebaseExtended/action-hosting-deploy@v0
