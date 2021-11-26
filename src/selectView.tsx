@@ -4,7 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 import { Container, Button } from 'react-bootstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faBracketsCurly, faBookMedical, faCode, faTurtle, faCaretLeft, faGripLinesVertical} from  '@fortawesome/pro-solid-svg-icons';
+import {faBracketsCurly, faBookMedical, faCode, faTurtle, faCaretLeft} from  '@fortawesome/pro-solid-svg-icons';
 
 import './App.css';
 
