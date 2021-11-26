@@ -4,7 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 import { Container, Button } from 'react-bootstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faBracketsCurly, faBookMedical, faCode, faTurtle, faCaretLeft} from  '@fortawesome/pro-solid-svg-icons';
+import {faBracketsCurly, faBookMedical, faCode, faTurtle, faCaretLeft, faGripLinesVertical} from  '@fortawesome/pro-solid-svg-icons';
 
 import './App.css';
 
@@ -72,7 +72,9 @@ export const SelectView = (props:any) => {
                                 <FontAwesomeIcon icon={faBookMedical} />
                             </a>
                             &nbsp;&nbsp;
+                            <span style={{color:"black"}}>
                             |
+                            </span>
                             &nbsp;
                             <a href={baseUrl + links[i]?.slice(46) + ".xml.html"}>
                                 <FontAwesomeIcon icon={faCode} />
