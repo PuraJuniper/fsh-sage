@@ -33,18 +33,9 @@ function App() {
     Description: "The resource has an unspecified relationship with a Condition."
     * value[x] only Reference(Condition)
     `);
+    console.log(outPackage);
     }
-  rs();
-
-  return <div></div>;
-
-
-
-
-
-
-
-
+    rs();
 
   let [render, setRender] = useState("metadata");
   let [nextRender, setNextRender] = useState("");
@@ -85,8 +76,6 @@ function App() {
 
     }
   })();
-
-  console.log(commonMetaData);
 
   return (
     <div className="App container">

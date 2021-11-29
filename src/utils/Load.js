@@ -31,12 +31,12 @@ export function unzipDependencies(resources, dependency, id) {
       });
       if (res.statusCode < 400) {
         res.pipe(zlib.createGunzip()).pipe(extract);
-        logger.info(`Downloaded ${dependency}#${id}`);
+        //logger.info(`Downloaded ${dependency}#${id}`);
       } else {
         if (id === 'current' || id === 'dev') {
-          logger.error(`FSHOnline does not currently support "current" or "dev" package versions`);
+          //logger.error(`FSHOnline does not currently support "current" or "dev" package versions`);
         } else {
-          logger.error(`your dependency ${dependency}#${id} could not be loaded. Your output may be invalid.`);
+          //logger.error(`your dependency ${dependency}#${id} could not be loaded. Your output may be invalid.`);
           returnPackage.emptyDependencies.push(`${dependency}${id}`);
         }
         resolve(returnPackage);
@@ -83,7 +83,7 @@ export function loadAsFHIRDefs(FHIRdefs, database, dependency, id) {
         iterator.continue();
       } else {
         if (displayLoaded) {
-          logger.info(`Loaded package ${dependency}#${id}`);
+          //logger.info(`Loaded package ${dependency}#${id}`);
         }
         resolve(FHIRdefs);
       }

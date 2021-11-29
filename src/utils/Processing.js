@@ -8,7 +8,7 @@ const FSHTank = sushiImport.FSHTank;
 const importText = sushiImport.importText;
 
 export function fillTank(rawFSHes, config) {
-  logger.info('Importing FSH text...');
+  //logger.info('Importing FSH text...');
   const docs = importText(rawFSHes);
   return new FSHTank(docs, config);
 }

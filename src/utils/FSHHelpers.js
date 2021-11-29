@@ -35,7 +35,7 @@ export async function runGoFSH(input, options) {
     try {
       resource = JSON.parse(resource);
     } catch (e) {
-      logger.error(`Could not parse ${location} to JSON`);
+      //logger.error(`Could not parse ${location} to JSON`);
       return;
     }
     if (gofshUtils.isProcessableContent(resource, location)) {
@@ -64,7 +64,7 @@ export async function runGoFSH(input, options) {
 
   // Return the string of FSH definitions
   const fsh = new gofshExport.FSHExporter(pkg).apiExport('string');
-  logger.info('Done converting definitions');
+  //logger.info('Done converting definitions');
   printGoFSHresults(pkg);
   return { fsh, config: configuration?.config ?? {} };
 }
@@ -83,14 +83,14 @@ export async function runGoFSH(input, options) {
  */
 export async function runSUSHI(input) {
   const config = {
-    canonical: 'http://efasdfasfxample.org',
-    version: '1.adsfasfasf0.0',
+    canonical: 'http://example.org',
+    version: '1.0.0',
     FSHOnly: true,
-    fhirVersion: ['4.0fdasafafsaf.1']
+    fhirVersion: ['4.0.1']
   };
-  const dependencyArr = ['hl7.fhafafafsafair.r4.core', 'fafafdaf4.0.1'];
+  const dependencyArr = ['hl7.fhir.r4.core', '4.0.1'];
 
-  console.log(dependencyArr);
+  
 
   stats.reset();
 
@@ -104,7 +104,7 @@ export async function runSUSHI(input) {
     const rawFSH = [new RawFSH(input)];
     tank = fillTank(rawFSH, config);
   } catch (e) {
-    logger.error('Something went wrong when importing the FSH definitions');
+    //logger.error('Something went wrong when importing the FSH definitions');
     return;
   }
   //Check for StructureDefinition
@@ -118,10 +118,10 @@ export async function runSUSHI(input) {
     return;
   }
 
-  logger.info('Converting FSH to FHIR resources...');
+  //logger.info('Converting FSH to FHIR resources...');
   const outPackage = exportFHIR(tank, defs);
 
-  console.log(' ');
+  
   printSUSHIResults(outPackage);
 
   // Remove snapshots
@@ -169,7 +169,7 @@ function printSUSHIResults(pkg) {
     '║' + ` ${aWittyMessageInvolvingABadFishPun} ${errorNumMsg} ${wrNumMsg} ` + '║',
     '╚' + '═════════════════════════════════════════════════════════════════' + '╝'
   ];
-  results.forEach((r) => console.log(r));
+
   // results.forEach((r) => console.log(`%c${r}`, `color:${clr}`)); // Color formatting for browser console
 }
 
@@ -211,6 +211,6 @@ function printGoFSHresults(pkg) {
     '╚' + '═════════════════════════════════════════════════════════════════' + '╝'
   ];
 
-  console.log(' ');
-  results.forEach((r) => console.log(r));
+  
+  //results.forEach((r) => console.log(r));
 }
