@@ -1,0 +1,13 @@
+diff --git a/node_modules/fsh-sushi/node_modules/winston/dist/winston/transports/console.js b/node_modules/fsh-sushi/node_modules/winston/dist/winston/transports/console.js
+index c58394a..5c6728c 100644
+--- a/node_modules/fsh-sushi/node_modules/winston/dist/winston/transports/console.js
++++ b/node_modules/fsh-sushi/node_modules/winston/dist/winston/transports/console.js
+@@ -125,7 +125,7 @@ module.exports = /*#__PURE__*/function (_TransportStream) {
+         console._stdout.write("".concat(info[MESSAGE]).concat(this.eol));
+       } else {
+         // console.log adds a newline.
+-        console.log(info[MESSAGE]);
++        // console.log(info[MESSAGE]);
+       }
+ 
+       if (callback) {
