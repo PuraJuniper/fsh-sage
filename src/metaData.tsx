@@ -5,10 +5,8 @@ import {SelectView} from './selectView';
 
 
 export const MetaData = (props:any) => {
-    const [showResource, setResource] = useState(false);
-    console.log(1);
 
-        //might need to change the way of saving data
+    //might need to change the way of saving data
     const sendValues = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         const {version, date, status, publisher, copyright, approval, lastapproval, author, editor, reviewer, endorser} = event.target as typeof event.target &{
@@ -40,7 +38,7 @@ export const MetaData = (props:any) => {
     };
 
     let defaultValues = {
-        version:props.commonMetaData?.version,
+        version:props.commonMetaData?.version ?? "1.0.0",
         date:props.commonMetaData?.date,
         status:props.commonMetaData?.status,
         publisher:props.commonMetaData?.publisher,

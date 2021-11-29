@@ -33,6 +33,7 @@ export const BaseCard = (props:any) => {
         in={show}
         timeout={9999}
         classNames="res-card"
+        /* unmountOnExit takes away the glimmering effect */
         >
         <Card
                 onClick={(e: any) => {
