@@ -7,6 +7,13 @@ import {faDownload} from  '@fortawesome/pro-solid-svg-icons';
 
 
 export const Collection = (props:any) => {
+    let [show, setShow] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setShow(true);
+        }, 16*25);
+      }, []);
 
     const resources = [
         "CPGAdministerMedicationActivityDefinition",
@@ -27,6 +34,17 @@ export const Collection = (props:any) => {
         "Questionnaire"
     ];
 
+    const button = (() => {
+        if (!show) {
+            return <div></div>
+        } else {
+            return <button className="export-json col-8 offset-2" onClick={() => console.log("export")}>
+                <FontAwesomeIcon icon={faDownload} />
+                            &nbsp;Export to JSON
+            </button>
+        }
+    })();
+
     return (
         <div style={{marginTop:"50px"}}>
             <div className="row">
@@ -45,10 +63,7 @@ export const Collection = (props:any) => {
                 })
             } 
             </div>
-            <button className="export-json col-8 offset-2" onClick={() => console.log("export")}>
-                <FontAwesomeIcon icon={faDownload} />
-                            &nbsp;Export to JSON
-            </button>
+            {button}
         </div>
     );
 }

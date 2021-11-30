@@ -27,23 +27,23 @@ html, body {
   background-color:#f7a56f;
 }
 
-.folder:hover {
+.folder:hover .card{
   color: white;
-  transition-duration:300ms;
+  transition: .3s;
+}
+
+.folder:hover .folder-type {
+  color: white;
+  transform: translate(0px, -12px);
+  transition: transform .3s;
 }
 
 .folder .folder-type {
-  transition: .2s;
+  transition: transform .3s;
 }
 
 .folder .folder-type .card-header {
   height: 60px;
-}
-
-.folder:hover .folder-type {
-  transform: translate(0px, -15px);
-  transition: .2s;
-  color: white;
 }
 
 .box {
