@@ -9,7 +9,7 @@ html, body {
 
 .card {
   cursor:pointer;
-  margin:10px 0px 10px 0px;
+  margin:0px 0px 15px 0px;
   border-radius:10px;
   border: 3px solid #ca641f;
 }
@@ -27,9 +27,28 @@ html, body {
   background-color:#f7a56f;
 }
 
+.folder:hover {
+  color: white;
+  transition-duration:300ms;
+}
+
+.folder .folder-type {
+  transition: .2s;
+}
+
+.folder .folder-type .card-header {
+  height: 60px;
+}
+
+.folder:hover .folder-type {
+  transform: translate(0px, -15px);
+  transition: .2s;
+  color: white;
+}
+
 .box {
   border:3px solid #b12c07;
-  padding:10px;
+  padding:25px 10px 10px 10px;
   border-radius:10px;
 }
 
@@ -41,7 +60,9 @@ a {
   color:black;
 }
 
-button {
+/* BUTTONS */
+
+.navigate, .open-resource {
   background: linear-gradient(to left, #fccdba 50%, #b12c07 50%) right;
   background-size: 200%;
   transition: .3s ease-out;
@@ -55,7 +76,12 @@ button {
   margin-bottom:5px;
 }
 
-button.open-resource {
+.navigate:hover, .open-resource:hover {
+  background-position:left;
+  color:white;
+}
+
+.open-resource {
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -64,15 +90,24 @@ button.open-resource {
   border-radius:5px;
 }
 
-button:hover {
-  background-position:left;
+.export-json {
+  margin-top:10px;
+  margin-bottom:10px;
+  height:50px;
+  padding:10px;
+  border-radius:10px;
+  background-color: #b12c07;
+  border:1px solid #b12c07;
   color:white;
 }
 
-test-color {
-  color:#e98f53;
+.export-json:hover {
+  background-color: #e73605;
+  border:1px solid #e73605;
+  transition-duration:300ms;
 }
 
+/* CARD/FOLDER APPEARANCES */
 .res-card-enter {
   opacity: 0;
   transform: translateY(-10px);
@@ -91,6 +126,25 @@ test-color {
   transition: opacity 300ms, transform 300ms;
 }
 
+.res-folder-enter {
+  opacity: 0;
+  transform: translateY(200px);
+}
+.res-folder-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 300ms;
+}
+.res-folder-exit {
+  opacity: 1;
+}
+.res-folder-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* SLIDE IN/OUT TRANSITIONS */
 .view-from-right-enter {
   opacity: 0;
   transform: translateX(100vw) translateY(50px);

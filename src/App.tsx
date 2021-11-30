@@ -3,12 +3,10 @@ import './App.css';
 import {SelectView} from "./selectView"
 import {Collection} from "./collection"
 import {MetaData} from "./metaData"
-import {BaseCard} from "./baseCard"
 import { CSSTransition } from 'react-transition-group';
-import {runSUSHI} from "./utils/FSHHelpers"
 
 function App() {
-  let [render, setRender] = useState("metadata");
+  let [render, setRender] = useState("collection");
   let [nextRender, setNextRender] = useState("");
   let [show, setShow] = useState(true);
   let [direction, setDirection] = useState("");
@@ -16,7 +14,8 @@ function App() {
 
   const viewNums:{ [key: string]: any }= {
     "metadata":0,
-    "selectview":1
+    "selectview":1,
+    "collection":3
   }
 
   useEffect(() => {
@@ -44,7 +43,8 @@ function App() {
       setCommonMetaData={setCommonMetaData}/>
     } else if (render === "selectview") {
       return <SelectView changeView={changeView}/>
-
+    } else if (render === "collection") {
+      return <Collection changeView={changeView}/>
     }
   })();
 
