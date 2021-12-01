@@ -1,17 +1,18 @@
 import {useState, useEffect} from "react";
 import {Folder} from"./folder";
-import {BaseCard} from "./baseCard";
+import { ExportDialog } from "./export-dialog";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faDownload} from  '@fortawesome/pro-solid-svg-icons';
 
 
 export const Collection = (props:any) => {
-    let [show, setShow] = useState(false);
+    let [showButton, setShowButton] = useState(false);
+    let [showExport, setShowExport] = useState(false);
 
     useEffect(() => {
         setTimeout(() => {
-            setShow(true);
+            setShowButton(true);
         }, 16*25);
       }, []);
 
@@ -34,11 +35,13 @@ export const Collection = (props:any) => {
         "Questionnaire"
     ];
 
+
+
     const button = (() => {
-        if (!show) {
+        if (!showButton) {
             return <div></div>
         } else {
-            return <button className="export-json col-8 offset-2" onClick={() => console.log("export")}>
+            return <button className="export-json col-8 offset-2" onClick={() => setShowExport(true)}>
                 <FontAwesomeIcon icon={faDownload} />
                             &nbsp;Export to JSON
             </button>
@@ -47,6 +50,7 @@ export const Collection = (props:any) => {
 
     return (
         <div style={{marginTop:"50px"}}>
+            <ExportDialog show={showExport} handleHide={() => setShowExport(false)}/>
             <div className="row">
             <h3 className="col-lg-10 col-md-9" style={{color:"#b12c07"}}><b>Saved Resources</b></h3>
             <button className="navigate col-lg-2 col-md-3" onClick={() => props.changeView("selectview")}>

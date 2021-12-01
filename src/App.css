@@ -7,6 +7,22 @@ html, body {
   margin:0 auto;
 }
 
+.box {
+  border:3px solid #b12c07;
+  padding:25px 10px 10px 10px;
+  border-radius:10px;
+}
+
+.form-control {
+  border: 3px solid #b12c07
+}
+
+a {
+  color:black;
+}
+
+/* CARDS AND FOLDERS */
+
 .card {
   cursor:pointer;
   margin:0px 0px 15px 0px;
@@ -46,18 +62,18 @@ html, body {
   height: 60px;
 }
 
-.box {
-  border:3px solid #b12c07;
-  padding:25px 10px 10px 10px;
-  border-radius:10px;
+/* MODAL */
+
+.modal-content{
+  background-color: #fccdba;
 }
 
-.form-control {
-  border: 3px solid #b12c07
+.modal-header {
+  border-bottom: 0 none;
 }
 
-a {
-  color:black;
+.modal-footer {
+  border-top: 0 none;
 }
 
 /* BUTTONS */
@@ -93,7 +109,6 @@ a {
 .export-json {
   margin-top:10px;
   margin-bottom:10px;
-  height:50px;
   padding:10px;
   border-radius:10px;
   background-color: #b12c07;
