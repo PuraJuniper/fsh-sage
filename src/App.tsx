@@ -6,7 +6,7 @@ import {MetaData} from "./metaData"
 import { CSSTransition } from 'react-transition-group';
 
 function App() {
-  let [render, setRender] = useState("collection");
+  let [render, setRender] = useState("metadata");
   let [nextRender, setNextRender] = useState("");
   let [show, setShow] = useState(true);
   let [direction, setDirection] = useState("");
@@ -22,7 +22,7 @@ function App() {
     if (!show) {
       if (viewNums[nextRender] > viewNums[render]) {
         setDirection("from-right")
-      } else {
+      } else if (viewNums[nextRender] < viewNums[render]) {
         setDirection("from-left");
       }
       setTimeout(() => {
@@ -32,9 +32,11 @@ function App() {
     }
   }, [show]);
 
-  const changeView = (nextRender:string) => {
-    setShow(false);
-    setNextRender(nextRender);
+  const changeView = (nextRender:string, delay:number = 0) => {
+    setTimeout(() => {
+      setNextRender(nextRender);
+      setShow(false);
+    }, delay);
   }
 
   const toRender = (() => {
@@ -45,6 +47,8 @@ function App() {
       return <SelectView changeView={changeView}/>
     } else if (render === "collection") {
       return <Collection changeView={changeView}/>
+    } else {
+      return <div>Nothing to render</div>
     }
   })();
 

@@ -76,20 +76,22 @@ export const SelectView = (props:any) => {
                             |
                             </span>
                             &nbsp;
-                            <a href={baseUrl + links[i]?.slice(46) + ".xml.html"}>
+                            <a href={baseUrl + links[i]?.slice(46) + ".xml.html"} target="_blank">
                                 <FontAwesomeIcon icon={faCode} />
                             </a>
                             &nbsp;&nbsp;
-                            <a href={baseUrl + links[i]?.slice(46) + ".json.html"}>
+                            <a href={baseUrl + links[i]?.slice(46) + ".json.html"} target="_blank">
                                 <FontAwesomeIcon icon={faBracketsCurly} />
                             </a>
                             &nbsp;&nbsp;
-                            <a href={baseUrl + links[i]?.slice(46) + ".ttl.html"}>
+                            <a href={baseUrl + links[i]?.slice(46) + ".ttl.html"} target="_blank">
                                 <FontAwesomeIcon icon={faTurtle} />
                             </a>
                         </div>
                         }
                         wait={i*25}
+                        changeView={props.changeView}
+                        clickable={true}
                         />
                         </div>
                 )})

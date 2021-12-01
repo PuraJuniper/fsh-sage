@@ -23,6 +23,7 @@ export const Folder = (props: any) => {
     <div className="folder" style={{position:"relative", marginBottom:"65px", marginTop: "10px"}}
         onClick={(e: any) => {
             setShow(false);
+            props.changeView("selectview", 250);
         }}>
         <BaseCard header="_" title="PlanDefinition" />
         <div className="folder-type" style={{position:"absolute", top:"-14px", left:"20px", maxWidth:"90%"}}>

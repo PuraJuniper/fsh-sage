@@ -62,7 +62,7 @@ export const Collection = (props:any) => {
                 resources.map(
                         (resource, i) => {
                         return <div className="col-lg-3 col-md-4 col-sm-6" key={i}>
-                            <Folder title={resource} wait={i*25} index={i}/>
+                            <Folder title={resource} wait={i*25} index={i} changeView={props.changeView}/>
                         </div>
                 })
             } 
