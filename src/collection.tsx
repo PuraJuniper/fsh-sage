@@ -14,7 +14,7 @@ export const Collection = (props:any) => {
         setTimeout(() => {
             setShowButton(true);
         }, 16*25);
-      }, []);
+      });
 
     const resources = [
         "CPGAdministerMedicationActivityDefinition",
