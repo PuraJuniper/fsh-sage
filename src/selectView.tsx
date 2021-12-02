@@ -68,24 +68,28 @@ export const SelectView = (props:any) => {
                         title={resource} 
                         content={
                         <div style={{fontSize:"20px"}}>
-                            <a href={links[i]} target="_blank">
+                            <a href={links[i]} target="_blank" className="c-tooltip">
                                 <FontAwesomeIcon icon={faBookMedical} />
+                                <span className="c-tooltiptext">FHIR Docs</span>
                             </a>
                             &nbsp;&nbsp;
                             <span style={{color:"black"}}>
                             |
                             </span>
                             &nbsp;
-                            <a href={baseUrl + links[i]?.slice(46) + ".xml.html"} target="_blank">
+                            <a href={baseUrl + links[i]?.slice(46) + ".xml.html"} target="_blank" className="c-tooltip">
                                 <FontAwesomeIcon icon={faCode} />
+                                <span className="c-tooltiptext">XML Spec</span>
                             </a>
                             &nbsp;&nbsp;
-                            <a href={baseUrl + links[i]?.slice(46) + ".json.html"} target="_blank">
+                            <a href={baseUrl + links[i]?.slice(46) + ".json.html"} target="_blank" className="c-tooltip">
                                 <FontAwesomeIcon icon={faBracketsCurly} />
+                                <span className="c-tooltiptext">JSON Spec</span>
                             </a>
                             &nbsp;&nbsp;
-                            <a href={baseUrl + links[i]?.slice(46) + ".ttl.html"} target="_blank">
+                            <a href={baseUrl + links[i]?.slice(46) + ".ttl.html"} target="_blank" className="c-tooltip">
                                 <FontAwesomeIcon icon={faTurtle} />
+                                <span className="c-tooltiptext">TTL Spec</span>
                             </a>
                         </div>
                         }

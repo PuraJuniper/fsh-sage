@@ -143,6 +143,34 @@ a {
   transition: transform 0.3s;
 }
 
+/* c-tooltipS */
+.c-tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.c-tooltip .c-tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the c-tooltip */
+  position: absolute;
+  z-index: 1;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.c-tooltip:hover .c-tooltiptext {
+  visibility: visible;
+}
+
 /* CARD/FOLDER APPEARANCES */
 .res-card-enter {
   opacity: 0;
@@ -188,7 +216,7 @@ a {
 .view-from-right-enter-active {
   opacity: 1;
   transform: translateX(0);
-  transition: all 250ms;
+  transition: all 500ms;
 }
 
 .view-from-right-exit {
@@ -197,7 +225,7 @@ a {
 .view-from-right-exit-active {
   opacity: 0;
   transform: translateX(-100vw);
-  transition: all 250ms;
+  transition: all 500ms;
 }
 
 .view-from-left-enter {
@@ -207,7 +235,7 @@ a {
 .view-from-left-enter-active {
   opacity: 1;
   transform: translateX(0);
-  transition: all 250ms;
+  transition: all 500ms;
 }
 
 .view-from-left-exit {
@@ -216,5 +244,5 @@ a {
 .view-from-left-exit-active {
   opacity: 0;
   transform: translateX(100vw);
-  transition: all 250ms;
+  transition: all 500ms;
 }

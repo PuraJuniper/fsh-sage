@@ -28,7 +28,7 @@ function App() {
       setTimeout(() => {
         setRender(nextRender);
         setShow(true);
-      }, 250); // 250ms is the transition time in App.css
+      }, 500); // 500ms is the transition time in App.css
     }
   }, [show]);
 
