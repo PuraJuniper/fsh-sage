@@ -112,7 +112,7 @@ export const MetaData = (props:any) => {
             <Form.Control type="text" defaultValue={defaultValues.endorser} placeholder="Endorser Name" />
             </Form.Group>
 
-        <button className="open-resource" type="submit" onClick={() => props.changeView("selectview")}>
+        <button className="open-resource navigate" type="submit" onClick={() => props.changeView("selectview")}>
             <b>Open Resource</b>
         </button>
 

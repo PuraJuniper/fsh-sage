@@ -78,8 +78,15 @@ a {
 
 /* BUTTONS */
 
-.navigate, .open-resource {
+.navigate {
   background: linear-gradient(to left, #fccdba 50%, #b12c07 50%) right;
+}
+
+.navigate-reverse {
+  background: linear-gradient(to right, #fccdba 50%, #b12c07 50%) left;
+}
+
+.navigate, .navigate-reverse {
   background-size: 200%;
   transition: .3s ease-out;
   border: 2px solid #b12c07;
@@ -92,8 +99,13 @@ a {
   margin-bottom:5px;
 }
 
-.navigate:hover, .open-resource:hover {
+.navigate:hover {
   background-position:left;
+  color:white;
+}
+
+.navigate-reverse:hover {
+  background-position:right;
   color:white;
 }
 
@@ -120,6 +132,15 @@ a {
   background-color: #e73605;
   border:1px solid #e73605;
   transition-duration:300ms;
+}
+
+.navigate-reverse svg {
+  transition: transform 0.3s;
+}
+
+.navigate-reverse:hover svg {
+  transform: translateX(-15px);
+  transition: transform 0.3s;
 }
 
 /* CARD/FOLDER APPEARANCES */

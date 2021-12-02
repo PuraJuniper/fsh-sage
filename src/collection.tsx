@@ -3,7 +3,7 @@ import {Folder} from"./folder";
 import { ExportDialog } from "./export-dialog";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {faDownload} from  '@fortawesome/pro-solid-svg-icons';
+import {faDownload, faCaretLeft} from  '@fortawesome/pro-solid-svg-icons';
 
 
 export const Collection = (props:any) => {
@@ -53,8 +53,9 @@ export const Collection = (props:any) => {
             <ExportDialog show={showExport} handleHide={() => setShowExport(false)}/>
             <div className="row">
             <h3 className="col-lg-10 col-md-9" style={{color:"#b12c07"}}><b>Saved Resources</b></h3>
-            <button className="navigate col-lg-2 col-md-3" onClick={() => props.changeView("selectview")}>
-                            New Resource
+            <button className="navigate-reverse col-lg-2 col-md-3" onClick={() => props.changeView("selectview")}>
+            <FontAwesomeIcon icon={faCaretLeft} />
+                            &nbsp;Select Resource
             </button>
             </div>
             <div className="row box">
