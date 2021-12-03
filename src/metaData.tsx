@@ -40,7 +40,7 @@ export const MetaData = (props:any) => {
     };
 
     const buildInput = (field:string) => {
-        let defaultValue = "";
+        let defaultValue = null;
         let [name, blank] = field.split(" = ");
         name = name.slice(2);
         blank = blank.replaceAll('%', '');

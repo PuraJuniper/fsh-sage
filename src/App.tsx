@@ -46,7 +46,7 @@ function App() {
     } else if (render === "selectview") {
       return <SelectView changeView={changeView}/>
     } else if (render === "collection") {
-      return <Collection changeView={changeView}/>
+      return <Collection changeView={changeView} commonMetaData={commonMetaData}/>
     } else {
       return <div>Empty</div>
     }

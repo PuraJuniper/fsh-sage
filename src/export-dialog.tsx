@@ -9,14 +9,16 @@ export const ExportDialog = (props:any) => {
     let [json, setJson] = useState("");
     let [converted, setConverted] = useState(false);
 
+    let cmd = props.commonMetaData
+
     const config = {
-        canonical: 'http://example.org',
-        version: '1.0.0',
-        FSHOnly: true,
-        fhirVersion: ['4.0.1'],
-        id: 'fhir.us.ccsm',
-        name: 'CervicalCancerScreeningAndManagement',
-        status: 'draft',
+        canonical: cmd.canonical,
+        version: cmd.version,
+        FSHOnly: cmd.FSHOnly ?? true,
+        fhirVersion: [cmd.fhirVersion],
+        id: cmd.id,
+        name: cmd.name,
+        status: cmd.status,
       };
     const dependencyArr = [['hl7.fhir.r4.core', '4.0.1'], ['hl7.fhir.us.core', '3.1.0'], 
     ['hl7.fhir.uv.cpg', '1.0.0'], ['hl7.fhir.uv.sdc', '2.7.0']];
