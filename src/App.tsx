@@ -4,6 +4,7 @@ import {SelectView} from "./selectView"
 import {Collection} from "./collection"
 import {MetaData} from "./metaData"
 import { CSSTransition } from 'react-transition-group';
+import { DefinitionView } from './definitionView';
 
 function App() {
   let [render, setRender] = useState("metadata");
@@ -15,6 +16,7 @@ function App() {
   const viewNums:{ [key: string]: any }= {
     "metadata":0,
     "selectview":1,
+    "definitionview":2,
     "collection":3
   }
 
@@ -45,6 +47,8 @@ function App() {
       setCommonMetaData={setCommonMetaData}/>
     } else if (render === "selectview") {
       return <SelectView changeView={changeView}/>
+    } else if (render.startsWith ('definitionview')) {
+      return <DefinitionView changeView={changeView} commonMetaData={commonMetaData}/>
     } else if (render === "collection") {
       return <Collection changeView={changeView}/>
     } else {

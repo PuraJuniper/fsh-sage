@@ -118,6 +118,15 @@ a {
   border-radius:5px;
 }
 
+.open-fields {
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  border-radius:3px;
+}
+
 .export-json {
   margin-top:10px;
   margin-bottom:10px;

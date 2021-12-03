@@ -38,7 +38,7 @@ export const BaseCard = (props:any) => {
                 onClick={(e: any) => {
                     if (e.target.tagName !== "svg" && e.target.tagName !== "path" && props.clickable) {
                         setShow(false);
-                        props.changeView("collection", 250);
+                        props.changeView(`definitionview-${props.title}`, 250);
                     }
                 }}
                 >
