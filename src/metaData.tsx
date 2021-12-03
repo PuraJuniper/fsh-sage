@@ -26,7 +26,6 @@ export const MetaData = (props:any) => {
     
     if (configFields.length < 5) return <div>Loading</div>;
 
-    //might need to change the way of saving data
     const sendValues = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         let elements = (document.getElementById("commonMetaDataForm") as HTMLFormElement).elements;

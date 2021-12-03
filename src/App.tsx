@@ -48,12 +48,10 @@ function App() {
     } else if (render === "selectview") {
       return <SelectView changeView={changeView}/>
     } else if (render.startsWith ('definitionview')) {
-      return <DefinitionView changeView={changeView} commonMetaData={commonMetaData}/>
+      return <DefinitionView changeView={changeView} commonMetaData={commonMetaData} title ={render.split("-")[1]}/>
     } else if (render === "collection") {
       return <Collection changeView={changeView} commonMetaData={commonMetaData}/>
-    } else if (render.startsWith('definitionview')){
-      return <div>{render.split("-")[1]}</div>
-    }
+    } 
   })();
 
   return (
