@@ -47,8 +47,8 @@ function App() {
       return <SelectView changeView={changeView}/>
     } else if (render === "collection") {
       return <Collection changeView={changeView} commonMetaData={commonMetaData}/>
-    } else {
-      return <div>Empty</div>
+    } else if (render.startsWith('definitionview')){
+      return <div>{render.split("-")[1]}</div>
     }
   })();
 
