@@ -30,7 +30,7 @@ function App() {
       setTimeout(() => {
         setRender(nextRender);
         setShow(true);
-      }, 250); // 250ms is the transition time in App.css
+      }, 500); // 500ms is the transition time in App.css
     }
   }, [show]);
 
@@ -50,9 +50,9 @@ function App() {
     } else if (render.startsWith ('definitionview')) {
       return <DefinitionView changeView={changeView} commonMetaData={commonMetaData}/>
     } else if (render === "collection") {
-      return <Collection changeView={changeView}/>
-    } else {
-      return <div>Nothing to render</div>
+      return <Collection changeView={changeView} commonMetaData={commonMetaData}/>
+    } else if (render.startsWith('definitionview')){
+      return <div>{render.split("-")[1]}</div>
     }
   })();
 

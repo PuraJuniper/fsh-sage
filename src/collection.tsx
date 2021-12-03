@@ -50,7 +50,11 @@ export const Collection = (props:any) => {
 
     return (
         <div style={{marginTop:"50px"}}>
-            <ExportDialog show={showExport} handleHide={() => setShowExport(false)}/>
+            <ExportDialog 
+                show={showExport} 
+                handleHide={() => setShowExport(false)} 
+                commonMetaData={props.commonMetaData}
+            />
             <div className="row">
             <h3 className="col-lg-10 col-md-9" style={{color:"#b12c07"}}><b>Saved Resources</b></h3>
             <button className="navigate-reverse col-lg-2 col-md-3" onClick={() => props.changeView("selectview")}>
