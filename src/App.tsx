@@ -3,6 +3,7 @@ import './App.css';
 import {SelectView} from "./selectView"
 import {Collection} from "./collection"
 import {MetaData} from "./metaData"
+import { Config } from './config';
 import { CSSTransition } from 'react-transition-group';
 
 function App() {
@@ -48,7 +49,7 @@ function App() {
     } else if (render === "collection") {
       return <Collection changeView={changeView}/>
     } else {
-      return <div>Nothing to render</div>
+      return <Config />
     }
   })();
 

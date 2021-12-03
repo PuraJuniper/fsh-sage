@@ -1,44 +1,40 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import { Form, Row , Col} from 'react-bootstrap';
 import { propTypes } from "react-bootstrap/esm/Image";
 import {SelectView} from './selectView';
 
 
 export const MetaData = (props:any) => {
+    const [configFields, setConfigFields] = useState<string[]>([]);
+
+    useEffect(() => {
+        async function fetchData() {
+            await fetch(`/fsh/config.fsh`)
+            .then(async response => response.text())
+            .then(async (txt) => {
+                setConfigFields(txt.split("\n"));
+            })
+        }
+        fetchData();
+      }, []);
+    
+    if (configFields.length < 5) return <div>Loading</div>;
 
     //might need to change the way of saving data
     const sendValues = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        const {version, date, status, publisher, copyright, approval, lastapproval, author, editor, reviewer, endorser} = event.target as typeof event.target &{
-            version: {value : string}
-            date: {value : string}
-            status: {value: string}
-            publisher: {value: string}
-            copyright: {value: string}
-            approval: {value: string}
-            lastapproval: {value: string}
-            author: {value: string}
-            editor: {value: string}
-            reviewer: {value: string}
-            endorser: {value: string}
+        let elements = (document.getElementById("commonMetaDataForm") as HTMLFormElement).elements;
+        let obj:{ [key: string]: any } = {};
+        for(let i = 0 ; i < elements.length ; i++){
+            let item = (elements.item(i) as HTMLInputElement);
+            let value = item.value;
+            obj[item.id] = value;
         }
-        props.setCommonMetaData({
-            version:version.value,
-            date:date.value,
-            status:status.value,
-            publisher:publisher.value,
-            copyright:copyright.value,
-            approval:approval.value,
-            lastapproval:lastapproval.value,
-            author:author.value,
-            editor:editor.value,
-            reviewer:reviewer.value,
-            endorser:endorser.value
-        });
+        props.setCommonMetaData(obj);
     };
 
-    let defaultValues = {
-        version:props.commonMetaData?.version ?? "1.0.0",
+    let defaultValues:{ [key: string]: any } = {
+        version:props.commonMetaData?.version,
         date:props.commonMetaData?.date,
         status:props.commonMetaData?.status,
         publisher:props.commonMetaData?.publisher,
@@ -48,8 +44,44 @@ export const MetaData = (props:any) => {
         author:props.commonMetaData?.author,
         editor:props.commonMetaData?.editor,
         reviewer:props.commonMetaData?.reviewer,
-        endorser:props.commonMetaData?.endorser
+        endorser:props.commonMetaData?.endorser,
+        name: props.commonMetaData?.name
     }
+
+    const buildInput = (field:string) => {
+        const cmdSaved = props.commonMetaData;
+        let defaultValue = "";
+        let [name, blank] = field.split(": ");
+        blank = blank.replaceAll('%', '');
+        if (["id", "canonical", "fhirVersion", "FSHOnly"].includes(name)) {
+            defaultValue = blank;
+        }
+        return (
+            <Form.Group as= {Col} controlId={name}>
+            <Form.Label as="b">{name.charAt(0).toUpperCase() + name.slice(1)}</Form.Label>
+            <Form.Control type="text" defaultValue={cmdSaved?.[name] ?? defaultValue} placeholder={blank}/>
+            </Form.Group>
+        );
+    }
+
+    const configFormBreakpoints = [0,2,3,5];
+    const configFormFields = (
+        <div>
+            {
+            configFormBreakpoints.slice(0,3).map((breakpoint, i) => {
+                return (
+                <Row className="mb-3">
+                    {
+                    configFields.slice(breakpoint,configFormBreakpoints[i+1]).map((field) => {
+                        return buildInput(field);
+                    })
+                    }
+                </Row>
+                );
+            })
+            }
+        </div>
+    );
      
     return (
         <div style={{marginTop:"50px"}}>
@@ -107,10 +139,11 @@ export const MetaData = (props:any) => {
             <Form.Control type="text" defaultValue={defaultValues.reviewer} placeholder="Reviewer Name" />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="endorser">
+            <Form.Group className="mb-5" controlId="endorser">
             <Form.Label as="b">Endorser Name</Form.Label>
             <Form.Control type="text" defaultValue={defaultValues.endorser} placeholder="Endorser Name" />
             </Form.Group>
+        {configFormFields}
 
         <button className="open-resource navigate" type="submit" onClick={() => props.changeView("selectview")}>
             <b>Open Resource</b>
